@@ -3,7 +3,9 @@ import NextHead from "next/head";
 const Head = () => {
     return (
         <NextHead>
-            <title>Landing | Tailwind Starter Kit by Creative Tim</title>
+            <title>Olumide Bakare | Full-Stack Engineer</title>
         </NextHead>
     )
 }
+
+export default Head
