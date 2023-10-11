@@ -10,6 +10,7 @@ import { Merriweather } from 'next/font/google';
 import dynamic from "next/dynamic";
 import resume from '@/public/document.pdf'
 import Link from "next/link";
+import Head from "../Head";
 
 const quoteFont = Merriweather({
   weight: '700',
@@ -85,6 +86,7 @@ export default function Layout() {
   }
   return (
     <>
+      <Head />
       <Navbar transparent={inView} />
       <main>
         <div className="relative pt-16 pb-32 flex content-center items-center justify-center"
