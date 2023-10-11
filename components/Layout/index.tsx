@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft, faQuoteRight } from "@fortawesome/free-solid-svg-icons";
 import { Merriweather } from 'next/font/google';
 import dynamic from "next/dynamic";
+import resume from '@/public/document.pdf'
+import Link from "next/link";
 
 const quoteFont = Merriweather({
   weight: '700',
@@ -18,7 +20,7 @@ const quoteFont = Merriweather({
 
 export default function Layout() {
   const PDFViewer = dynamic(() => import('@/components/PDFViewer'), { ssr: false })
-  const { ref, inView } = useInView({ threshold: [0.7, 0], delay: 333 })
+  const { ref, inView } = useInView({ threshold: [0, 1], delay: 1000 })
   const services = [
     {
       name: 'frontend <web>',
@@ -45,6 +47,42 @@ export default function Layout() {
       bg: cover,
     }
   ]
+  const portfolios = [
+    {
+      name: 'data analysis',
+      description: 'Investigating effectiveness of emergency-response processes',
+      tools: [],
+      bg: cover,
+    },
+    {
+      name: 'dashboard',
+      description: 'Examine key perormance indicators',
+      tools: [],
+      bg: cover,
+    },
+    {
+      name: 'react application',
+      description: 'School management application: ScreenLine Learn',
+      tools: [],
+      bg: cover,
+    },
+    {
+      name: 'web development',
+      description: 'Rental System: Agribooth',
+      company: 'SQT Web Solutions',
+      tools: [],
+      bg: cover,
+    }
+  ]
+  const contactMe = {
+    name: 'olumide',
+    description: `As a Full-Stack Engineer, I can combine frontend (typescript incl.) with
+                  backend (python, Django inclu.) stacks to create applicatons following objectives
+                  .`,
+    services: [
+      
+    ]
+  }
   return (
     <>
       <Navbar transparent={inView} />
@@ -116,15 +154,48 @@ export default function Layout() {
               ))}
             </div>
             <div className="pt-20 pb-5">
+            <div className='pl-10 pb-6'>
+              <h3 className="text-black font-semibold text-3xl capitalize">
+                Resume.
+              </h3>
+            </div>
             <div className="flex flex-wrap justify-center text-center mb-24">
               <div className="w-full px-4 align-middle">  {/* lg:w-6/12 */}
                 <p className="text-lg leading-relaxed m-1 text-gray-600 bg-gray-100"  style={{ height: '100vh', overflowY: 'auto', display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
-                {/* <object data='https://docdro.id/8sdyvCp' width={1100} height={500}  />  */}
-                {/* <div ref={containerRef} style={{ height: '100vh' }}></div> */}
-                <PDFViewer />
+                  {/* <PDFViewer /> */}
+                  <object data='https://docdro.id/8sdyvCp' className="w-full h-full"  />
                 </p>
               </div>
             </div>
+            </div>
+            <div className='pl-10 pb-6'>
+              <h3 className="text-black font-semibold text-3xl capitalize">
+                Portfolio.
+              </h3>
+            </div>
+            <div className="flex flex-wrap">
+              {portfolios.map((portfolio) => (
+                <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4" key={portfolio.name}>
+                <div className="px-6">
+                  <div className="max-w-sm rounded overflow-hidden shadow-xl hover:shadow-md">
+                    <Image alt="..." className='w-full' src={portfolio.bg?.src!} width={1500} height={1500} />
+                    <div className="px-6 py-4">
+                      <div className="font-bold text-xl mb-2 capitalize">{portfolio.name}</div>
+                      <p className="text-gray-700 text-base">
+                        {portfolio?.company && <Link href='https://www.sqtwebsolutions.com/index' className='hover:text-gray-400'>SQT Web Solutions:</Link>} {portfolio.description}
+                      </p>
+                    </div>
+                    <div className="px-6 pt-4 pb-2">
+                      {portfolio.tools?.map((tool) => (
+                        <span key={tool} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                        #{tool}
+                      </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              ))}
             </div>
           </div>
         </section>
