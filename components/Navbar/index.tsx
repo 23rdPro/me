@@ -59,7 +59,8 @@ export default function Navbar(props: any) {
                     : 'text-gray-800 hover:text-gray-600') + 
                     ' px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold'
                   }
-                  href={`/`}
+                  href={`#${item[0]}`}
+                  scroll={false}
                 >
                   <FontAwesomeIcon 
                     key={item[0]}
@@ -87,7 +88,6 @@ export default function Navbar(props: any) {
                   'text-xs font-bold capitalize px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3'
                 }
                 type="button"
-                style={{ transition: "all .15s ease" }}
               >
                  Download Résumé
               </button>

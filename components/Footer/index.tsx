@@ -11,7 +11,7 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 
 export default function Footer() {
   const contactForm = useRef(null);
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState('');
   const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
   const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID
@@ -43,7 +43,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-row items-stretch md:flex-wrap">
           <div className="basis-1/2 w-full px-4">
-            <h4 className="text-3xl font-semibold">
+            <h4 id='contact' className="text-3xl font-semibold">
                 Let&apos;s keep in touch!
             </h4>
             <div className="mt-2">
@@ -72,6 +72,13 @@ export default function Footer() {
                   name="message"
                 />
                 <div className="mt-2">
+                  <button 
+                    className='hidden rounded-full bg-white-400 text-white text-xs font-bold capitalize px-4 py-2 shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3'
+                    type="submit"
+                    style={{ transition: 'all .15s ease' }}
+                  >
+                    {/* todo: animate on success */}
+                  </button>
                   <button 
                     className='bg-blue-400 text-white text-xs font-bold capitalize px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3'
                     type="submit"
