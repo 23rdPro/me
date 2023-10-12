@@ -1,4 +1,5 @@
 import cover from '@/public/cover.jpeg'
+import agribooth from '@/public/agribooth.jpeg'
 
 export const services = [
     {
@@ -33,12 +34,14 @@ export const portfolios = [
       description: 'Investigating effectiveness of emergency-response processes',
       tools: [],
       bg: cover,
+      href: '/analysis'
     },
     {
       name: 'dashboard',
       description: 'Examine key perormance indicators',
       tools: [],
       bg: cover,
+      href: '/dashboard'
     },
     {
       name: 'react application',
@@ -48,10 +51,11 @@ export const portfolios = [
     },
     {
       name: 'web development',
-      description: 'Rental System: Agribooth',
-      company: 'SQT Web Solutions',
+      description: 'Rental System that tracks and temporarily grant ownership of Agric items.',
+      company: '',
       tools: [],
-      bg: cover,
+      bg: agribooth,
+      href: 'https://www.sqtwebsolutions.com/index'
     }
 ]
 
