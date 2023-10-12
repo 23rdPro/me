@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 import Image from "next/image";
@@ -17,7 +17,6 @@ const quoteFont = Merriweather({
 })
 
 export default function Layout() {
-  // const PDFViewer = dynamic(() => import('@/components/PDFViewer'), { ssr: false })
   const { ref, inView } = useInView({ threshold: [0, 1], delay: 1000 })
   const services = [
     {

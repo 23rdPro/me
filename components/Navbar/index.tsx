@@ -70,8 +70,6 @@ export default function Navbar(props: any) {
                         : 'text-gray-500 ') +
                         'text-lg leading-lg mr-2'
                     }
-                    // shake={props.transparent}
-                    // swapOpacity
                     inverse={props.transparent}
                   />
                   {item[0]}
@@ -80,75 +78,8 @@ export default function Navbar(props: any) {
             ))}
           </ul>
           <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-            {/* <li className="flex items-center">
-              <a
-                className={
-                  (props.transparent
-                    ? "lg:text-white lg:hover:text-gray-300 text-gray-800"
-                    : "text-gray-800 hover:text-gray-600") +
-                  " px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                }
-                href="#pablo"
-              >
-                <i
-                  className={
-                    (props.transparent
-                      ? "lg:text-gray-300 text-gray-500"
-                      : "text-gray-500") +
-                    " fab fa-facebook text-lg leading-lg "
-                  }
-                />
-                <span className="lg:hidden inline-block ml-2">Share</span>
-              </a>
-            </li> */}
-
-            {/* <li className="flex items-center">
-              <a
-                className={
-                  (props.transparent
-                    ? "lg:text-white lg:hover:text-gray-300 text-gray-800"
-                    : "text-gray-800 hover:text-gray-600") +
-                  " px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                }
-                href="#pablo"
-              >
-                <i
-                  className={
-                    (props.transparent
-                      ? "lg:text-gray-300 text-gray-500"
-                      : "text-gray-500") +
-                    " fab fa-twitter text-lg leading-lg "
-                  }
-                />
-                <span className="lg:hidden inline-block ml-2">Tweet</span>
-              </a>
-            </li> */}
-
-            {/* <li className="flex items-center">
-              <a
-                className={
-                  (props.transparent
-                    ? "lg:text-white lg:hover:text-gray-300 text-gray-800"
-                    : "text-gray-800 hover:text-gray-600") +
-                  " px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                }
-                href="#pablo"
-              >
-                <i
-                  className={
-                    (props.transparent
-                      ? "lg:text-gray-300 text-gray-500"
-                      : "text-gray-500") +
-                    " fab fa-github text-lg leading-lg "
-                  }
-                />
-                <span className="lg:hidden inline-block ml-2">Star</span>
-              </a>
-            </li> */}
-
             <li className="flex items-center">
               <button
-              // bg-pink-500 text-white active:bg-pink-600
                 className={
                   (props.transparent
                     ? 'bg-white text-gray-800 active:bg-gray-100 '
