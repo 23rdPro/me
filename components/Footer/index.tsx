@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 import { faTwitter } from "@fortawesome/free-brands-svg-icons/faTwitter";
 import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons/faLinkedin";
@@ -7,28 +8,20 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
 import { faMedium } from "@fortawesome/free-brands-svg-icons/faMedium";
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
-import MailSlurp from "mailslurp-client";
 
 export default function Footer() {
-  const [message, setMessage] = useState('')
-  const key = process.env.NEXT_PUBLIC_API_KEY 
-  const mailSlurpClient = new MailSlurp({ apiKey: key! })
-  let inbox: any
-  inbox = async () => await mailSlurpClient.createInbox();
-  const options = {
-    to: ['mailolumide@gmail.com'],
-    subject: 'Inquiry',
-    body: message
-  }
+  const contactForm = useRef(null);
+  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+  const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID
   const handleSubmit = (e: any) => {
-    let sent: any
-    sent = async () => await mailSlurpClient.sendEmail(inbox.id, options)
-    console.log(sent.subject)
-    // expect(sent.subject).toContain('Inquiry');
+    emailjs.sendForm(serviceId!, templateId!, contactForm.current!, publicKey)
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
     e.preventDefault()
-  }
-  const handleChange = (e: any) => {
-    setMessage(e.target.value)
   }
   const socials = [
     {
@@ -78,14 +71,13 @@ export default function Footer() {
           </div>
           {isDesktopOrLaptop && (
             <div className="basis-1/2 w-full px-4 text-right">
-            <form onSubmit={handleSubmit}>
+            <form ref={contactForm} onSubmit={handleSubmit}>
               <textarea 
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Write Message"
                 rows={2}
                 cols={50}
-                value={message}
-                onChange={handleChange}
+                
               />
               <div className="mt-2">
               <button 
