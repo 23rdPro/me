@@ -108,10 +108,10 @@ export default function Home() {
                   <div className="max-w-sm rounded overflow-hidden shadow-xl hover:shadow-md">
                     <Image alt="..." className='w-full' src={portfolio.bg?.src!} width={1500} height={1500} />
                     <div className="px-6 py-4">
-                      <Link href='/' className='hover:text-gray-400 underline'>
-                        <div className="font-bold text-xl mb-2 capitalize">{portfolio.name}</div>
+                      <Link href={portfolio?.href || '/' } className="text-gray-400 hover:text-black font-bold text-xl mb-4 capitalize">
+                        {portfolio.name}
                       </Link>
-                      <p className="text-gray-700 text-base">
+                      <p className="text-gray-900 text-base">
                         {portfolio?.company && <Link href='https://www.sqtwebsolutions.com/index' className='hover:text-gray-400'>SQT Web Solutions:</Link>} {portfolio.description}
                       </p>
                     </div>

@@ -60,7 +60,7 @@ export default function Navbar(props: any) {
                     ' px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold'
                   }
                   href={`#${item[0]}`}
-                  scroll={false}
+                  // scroll={false}
                 >
                   <FontAwesomeIcon 
                     key={item[0]}
