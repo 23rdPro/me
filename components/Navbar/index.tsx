@@ -59,8 +59,8 @@ export default function Navbar(props: any) {
                     : 'text-gray-800 hover:text-gray-600') + 
                     ' px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold'
                   }
-                  href={`#${item[0]}`}
-                  // scroll={false}
+                  href={`/#${item[0]}`}
+                  scroll={false}
                 >
                   <FontAwesomeIcon 
                     key={item[0]}
@@ -80,7 +80,8 @@ export default function Navbar(props: any) {
           </ul>
           <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
             <li className="flex items-center">
-              <button
+             <Link href="/#resume">
+             <button
                 className={
                   (props.transparent
                     ? 'bg-white text-gray-800 active:bg-gray-100 '
@@ -91,6 +92,7 @@ export default function Navbar(props: any) {
               >
                  Download Résumé
               </button>
+             </Link>
             </li>
           </ul>
         </div>

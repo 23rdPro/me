@@ -67,3 +67,11 @@ export const contactMe = {
     services: []
   }
 
+  export const dashboard = {
+    description: '',
+    goal: '',
+    result: '',
+    duration: '',
+    pictures: [],
+  }
+
