@@ -8,6 +8,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
 import { faMedium } from "@fortawesome/free-brands-svg-icons/faMedium";
 import Link from "next/link";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import { ConsoleLogger } from "@/logger/consoleLogger";
 
 export default function Footer() {
   const contactForm = useRef(null);
@@ -15,13 +16,16 @@ export default function Footer() {
   const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
   const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID
+  const success = new ConsoleLogger({ level: 'log' })
+  const loggerError = new ConsoleLogger({ level: 'error' })
   const handleSubmit = (e: any) => {
     e.preventDefault()
     emailjs.sendForm(serviceId!, templateId!, contactForm.current!, publicKey)
       .then((result) => {
-        console.log(result.text);
+        success.log('Email sent §∞>', [result.text, result.status])
       }, (error) => {
         console.log(error.text);
+        loggerError.log('e®®o®:', [error.text])
       });
   }
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {

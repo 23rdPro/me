@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Layout from '@/components/Layout'
 import cover from '@/public/cover.jpeg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -106,11 +106,13 @@ export default function Home() {
                 <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4" key={portfolio.name}>
                 <div className="px-6">
                   <div className="max-w-sm rounded overflow-hidden shadow-xl hover:shadow-md">
-                    <Image alt="..." className='w-full' src={portfolio.bg?.src!} width={1500} height={1500} />
+                    <a href={portfolio?.href || '/' }>
+                      <Image alt="..." className='w-full' src={portfolio.bg?.src!} width={1500} height={1500} />
+                    </a>
                     <div className="px-6 py-4">
-                      <Link href={portfolio?.href || '/' } className="text-gray-400 hover:text-black font-bold text-xl mb-4 capitalize">
+                      <div className="mb-3 font-bold capitalize text-xl text-gray-400 hover:text-black">
                         {portfolio.name}
-                      </Link>
+                      </div>
                       <p className="text-gray-900 text-base">
                         {portfolio?.company && <Link href='https://www.sqtwebsolutions.com/index' className='hover:text-gray-400'>SQT Web Solutions:</Link>} {portfolio.description}
                       </p>
